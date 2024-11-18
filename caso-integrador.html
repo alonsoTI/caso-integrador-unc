@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso Práctico Azure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: #0078D7;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            margin: 2rem auto;
+            max-width: 960px;
+            padding: 1rem 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: #0078D7;
+            border-bottom: 2px solid #0078D7;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: #005A9E;
+            margin-top: 1.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        code, pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem;
+            font-family: "Courier New", Courier, monospace;
+            display: block;
+            white-space: pre-wrap;
+        }
+
+        pre {
+            margin-bottom: 1rem;
+        }
+
+        ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            background: #f4f4f4;
+            color: #333;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Caso Práctico: Gestión de una Solución Empresarial en Azure</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Contexto</h2>
+            <p>
+                Una empresa llamada <strong>TechGlobal</strong> está migrando su infraestructura y bases de datos a Azure. La empresa cuenta con un sistema web que incluye un frontend (aplicación web) y un backend soportado por una base de datos SQL Server. Además, quieren garantizar alta disponibilidad, seguridad, rendimiento óptimo y monitoreo de toda su infraestructura.
+            </p>
+        </section>
+
+        <section>
+            <h2>Escenario</h2>
+            <ol>
+                <li>
+                    <h3>Implementación de la infraestructura básica</h3>
+                    <ul>
+                        <li>Crear una red virtual (VNet) con subredes para aplicaciones y bases de datos (que estará en una máquina virtual).</li>
+                        <li>Configurar un Azure Bastion para administrar las máquinas virtuales (Opcional).</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Despliegue de recursos del sistema web</h3>
+                    <ul>
+                        <li>Implementar una máquina virtual para el backend usando una imagen de Windows Server.</li>
+                        <li>Instalar las herramientas de desarrollo en la máquina virtual para alojar la aplicación web. <a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net481">SDK Net Framework</a>, <a href="https://code.visualstudio.com/">VS Code</a></li>
+                        <li>Configurar un Azure Load Balancer para garantizar alta disponibilidad. Opcional</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Gestión de la base de datos</h3>
+                    <ul>
+                        <li>Implementar un Azure SQL Database y una máquina virtual con SQL Server.</li>
+                        <li>Usar el backup de base de datos ejemplo que usamos en clase y restaurarla en la bd SQL Server de la máquina virtual: <a href="https://github.com/MicrosoftLearning/dp-300-database-administrator/blob/master/Instructions/Templates/AdventureWorks2017.bak">Archivo de Backup</a></li>
+                        <li>Migrar la base de datos local a Azure SQL usando Azure Database Migration Service de <a href="https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?tabs=win-install%2Cwin-user-install%2Credhat-install%2Cwindows-uninstall%2Credhat-uninstall">Azure Data Studio</a></li>
+                        <li>Configurar auto-escalado para la base de datos.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Seguridad de la solución</h3>
+                    <ul>
+                        <li>Configurar Entra ID para gestionar accesos.</li>
+                        <li>Crear roles y asignar permisos específicos.</li>
+                        <li>Implementar políticas de firewall en Azure SQL Database.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Supervisión y optimización</h3>
+                    <ul>
+                        <li>Configurar Azure Monitor para métricas y logs.</li>
+                        <li>Implementar alertas para problemas de rendimiento.</li>
+                        <li>Optimizar consultas SQL usando herramientas de análisis.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Recomendaciones: </h2>
+            <ol>
+                <li>
+                    <h3>Diseño de la solución:</h3>
+                    <ul>
+                        <li>Crear un diagrama de arquitectura que muestre los recursos y sus interacciones en Azure.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Implementación práctica:</h3>
+                    <ul>
+                        <li>Desplegar todos los recursos en Azure siguiendo las mejores prácticas aprendidas en ambos cursos.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Pruebas de funcionalidad:</h3>
+                    <ul>
+                        <li>Asegurarse de que la aplicación web esté disponible y se conecte correctamente con la base de datos.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Anexo: Aplicación Web en C#</h2>
+            <h3>Objetivo</h3>
+            <p>
+                Crear una aplicación web básica en C# usando ASP.NET Core que se conecte a SQL Server (de la máquina virtual) y muestre mensajes almacenados en la tabla <code>Mensajes</code>.
+            </p>
+
+            <h3>Pasos para crear el proyecto</h3>
+            <ol>
+                <li>
+                    <h4>Crear el proyecto web</h4>
+                    <pre>
+dotnet new mvc -n WebAppAzureSQL
+                    </pre>
+                </li>
+                <li>
+                    <h4>Agregar el paquete NuGet para SQL Server</h4>
+                    <pre>
+dotnet add package Microsoft.Data.SqlClient
+                    </pre>
+                </li>
+                <li>
+                    <h4>Configurar la conexión</h4>
+                    <p>Editar <code>appsettings.json</code> para agregar la cadena de conexión:</p>
+                    <pre>
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=tcp:&lt;TU-SERVIDOR&gt;.database.windows.net,1433;Database=&lt;TU-BASE-DE-DATOS&gt;;User ID=&lt;TU-USUARIO&gt;;Password=&lt;TU-CONTRASEÑA&gt;;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  }
+}
+                    </pre>
+                </li>
+                <li>
+                    <h4>Crear el modelo</h4>
+                    <pre>
+namespace WebAppAzureSQL.Models
+{
+    public class Mensaje
+    {
+        public int Id { get; set; }
+        public string Texto { get; set; }
+    }
+}
+                    </pre>
+                </li>
+                <li>
+                    <h4>Crear el controlador</h4>
+                    <pre>
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
+using WebAppAzureSQL.Models;
+
+namespace WebAppAzureSQL.Controllers
+{
+    public class MensajesController : Controller
+    {
+        private readonly string _connectionString;
+
+        public MensajesController(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
+        }
+
+        public IActionResult Index()
+        {
+            List&lt;Mensaje&gt; mensajes = new List&lt;Mensaje&gt;();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = "SELECT Id, Texto FROM Mensajes";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            mensajes.Add(new Mensaje
+                            {
+                                Id = reader.GetInt32(0),
+                                Texto = reader.GetString(1)
+                            });
+                        }
+                    }
+                }
+            }
+
+            return View(mensajes);
+        }
+    }
+}
+                    </pre>
+                </li>
+                <li>
+                    <h4>Crear la vista</h4>
+                    <pre>
+@model IEnumerable&lt;WebAppAzureSQL.Models.Mensaje&gt;
+
+&lt;h1&gt;Mensajes desde Azure SQL&lt;/h1&gt;
+&lt;ul&gt;
+@foreach (var mensaje in Model)
+{
+    &lt;li&gt;@mensaje.Texto&lt;/li&gt;
+}
+&lt;/ul&gt;
+                    </pre>
+                </li>
+                <li>
+                    <h4>Configurar rutas</h4>
+                    <pre>
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Mensajes}/{action=Index}/{id?}");
+                    </pre>
+                </li>
+                <li>
+                    <h4>Ejecutar la aplicación</h4>
+                    <pre>
+dotnet run
+                    </pre>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Caso Práctico Azure</p>
+    </footer>
+</body>
+</html>
